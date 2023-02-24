@@ -1,0 +1,15 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "hostingPlanName": {
+      "value": "plan-pd-int001-calendar-todoist-sync"
+    },
+    "storageAccountName": {
+      "value": "storpdint001"
+    },
+    "functionAppName": {
+      "value": "func-pd-int001-calendar-todoist-sync"
+    }
+  }
+}
