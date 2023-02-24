@@ -3,7 +3,7 @@ name: INT001 Deploy
 on:
   push:
     branches:
-      - master
+      - main
     paths:
       - int001-calendar-to-todoist/**
   workflow_dispatch:

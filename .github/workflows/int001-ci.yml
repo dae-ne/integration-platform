@@ -3,12 +3,12 @@ name: INT001 CI
 on:
   push:
     branches-ignore:
-      - master
+      - main
     paths:
       - int001-calendar-to-todoist/**
   pull_request:
     branches:
-      - master
+      - main
     paths:
       - int001-calendar-to-todoist/**
   workflow_dispatch:
