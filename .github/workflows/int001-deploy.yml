@@ -43,7 +43,7 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    environment: int001-production
+    environment: 'INT001 Production'
     steps:
     - name: Download a Build Artifact
       uses: actions/download-artifact@v3
