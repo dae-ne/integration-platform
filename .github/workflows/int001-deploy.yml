@@ -36,8 +36,8 @@ jobs:
     - name: Upload an ARM Template Artifact
       uses: actions/upload-artifact@v3
       with:
-        name: bicep
-        path: ${{ env.INT001_PATH }}/bicep/**
+        name: infra
+        path: ${{ env.INT001_PATH }}/infra/**
         if-no-files-found: error
 
   deploy:
@@ -53,8 +53,8 @@ jobs:
     - name: Download an ARM Template Artifact
       uses: actions/download-artifact@v3
       with:
-        name: bicep
-        path: bicep
+        name: infra
+        path: infra
     - name: Login via Azure CLI
       uses: azure/login@v1
       with:
