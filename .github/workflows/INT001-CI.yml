@@ -5,16 +5,16 @@ on:
     branches-ignore:
       - main
     paths:
-      - int001-calendar-to-todoist/**
+      - INT001-calendar-to-todoist/**
   pull_request:
     branches:
       - main
     paths:
-      - int001-calendar-to-todoist/**
+      - INT001-calendar-to-todoist/**
   workflow_dispatch:
 
 env:
-  INT001_PATH: int001-calendar-to-todoist
+  INT001_PATH: INT001-calendar-to-todoist
 
 jobs:
   build:

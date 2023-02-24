@@ -5,11 +5,11 @@ on:
     branches:
       - main
     paths:
-      - int001-calendar-to-todoist/**
+      - INT001-calendar-to-todoist/**
   workflow_dispatch:
 
 env:
-  INT001_PATH: int001-calendar-to-todoist
+  INT001_PATH: INT001-calendar-to-todoist
   FUNCTIONAPP_NAME: func-pd-int001-calendar-to-todoist
 
 jobs:
