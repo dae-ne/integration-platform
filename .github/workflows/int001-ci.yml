@@ -6,6 +6,11 @@ on:
       - master
     paths:
       - int001-calendar-to-todoist/**
+  pull_request:
+    branches:
+      - master
+    paths:
+      - int001-calendar-to-todoist/**
   workflow_dispatch:
 
 env:
