@@ -5,12 +5,11 @@ using Microsoft.Extensions.Logging;
 
 namespace PD.INT001.Function.Functions;
 
-public static class RefreshGoogleToken
+public static class CalendarWebhookRefresh
 {
-    [FunctionName("refresh-google-token")]
+    [FunctionName("calendar-webhook-refresh")]
     public static async Task RunAsync(
-        [TimerTrigger("0 */5 * * * *", RunOnStartup = true)]
-        TimerInfo myTimer,
+        [TimerTrigger("0 */5 * * * *")] TimerInfo myTimer,
         ILogger log)
     {
         log.LogInformation($"C# Timer trigger function executed at: {DateTime.UtcNow}");

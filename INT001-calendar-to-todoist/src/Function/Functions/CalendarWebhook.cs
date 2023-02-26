@@ -9,9 +9,9 @@ using Newtonsoft.Json;
 
 namespace PD.INT001.Function.Functions;
 
-public static class HandleCalendarEvent
+public static class CalendarWebhook
 {
-    [FunctionName("handle-calendar-event")]
+    [FunctionName("calendar-webhook")]
     public static async Task<IActionResult> RunAsync(
         [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
         ILogger log)
