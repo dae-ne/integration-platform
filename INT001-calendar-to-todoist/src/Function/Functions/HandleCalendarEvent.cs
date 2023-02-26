@@ -7,11 +7,11 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
-namespace PD.INT001.Function;
+namespace PD.INT001.Function.Functions;
 
-public static class TestFunction
+public static class HandleCalendarEvent
 {
-    [FunctionName("test-function")]
+    [FunctionName("handle-calendar-event")]
     public static async Task<IActionResult> RunAsync(
         [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
         ILogger log)
@@ -22,7 +22,7 @@ public static class TestFunction
 
         var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
         dynamic data = JsonConvert.DeserializeObject(requestBody);
-        name = name ?? data?.name;
+        name ??= data?.name;
 
         return name != null
             ? new OkObjectResult($"Hello, {name}")
