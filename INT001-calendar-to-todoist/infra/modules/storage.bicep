@@ -50,9 +50,9 @@ resource authTable 'Microsoft.Storage/storageAccounts/tableServices/tables@2022-
     signedIdentifiers: [
       {
         accessPolicy: {
-          permission: 'r'
+          permission: 'raud'
         }
-        id: 'auth1'
+        id: 'admin'
       }
     ]
   }
