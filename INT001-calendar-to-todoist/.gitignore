@@ -17,3 +17,6 @@ obj/
 *.iml
 *.ipr
 *.iws
+
+# User-specific files
+local.settings.json
