@@ -2,5 +2,7 @@
 
 public interface IAuthService
 {
-    Task RefreshTokenAsync();
+    Task<string> GetTokenAsync(CancellationToken cancellationToken);
+
+    Task RefreshTokenAsync(CancellationToken cancellationToken);
 }

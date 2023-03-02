@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using PD.INT001.Application.Interfaces;
 
 namespace PD.INT001.Application.Commands;
 
@@ -6,8 +7,16 @@ public record RefreshGoogleTokenCommand : IRequest;
 
 internal sealed class RefreshGoogleTokenHandler : IRequestHandler<RefreshGoogleTokenCommand>
 {
-    public Task Handle(RefreshGoogleTokenCommand request, CancellationToken cancellationToken)
+    private readonly IAuthService _authService;
+
+    public RefreshGoogleTokenHandler(IAuthService authService)
     {
-        throw new NotImplementedException();
+        _authService = authService;
+    }
+    
+    public async Task Handle(RefreshGoogleTokenCommand request, CancellationToken cancellationToken)
+    {
+        var token = await _authService.GetTokenAsync(cancellationToken);
+        Console.WriteLine(token);
     }
 }

@@ -7,7 +7,7 @@ namespace PD.INT001.Function.Functions;
 
 public static class CalendarWebhookRefresh
 {
-    [FunctionName("calendar-webhook-refresh")]
+    //[FunctionName("calendar-webhook-refresh")]
     public static async Task RunAsync(
         [TimerTrigger("0 */5 * * * *")] TimerInfo myTimer,
         ILogger log)
