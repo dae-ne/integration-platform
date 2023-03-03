@@ -9,7 +9,7 @@ public sealed class GoogleTokenRefresh
         _mediator = mediator;
     }
     
-    //[FunctionName("google-token-refresh")]
+    [FunctionName("google-token-refresh")]
     public async Task RunAsync(
         [TimerTrigger("0 */5 * * * *", RunOnStartup = true)]
         TimerInfo myTimer,

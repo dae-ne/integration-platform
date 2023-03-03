@@ -8,7 +8,7 @@ namespace PD.INT001.Function.Functions;
 
 public static class CalendarWebhook
 {
-    [FunctionName("calendar-webhook")]
+    //[FunctionName("calendar-webhook")]
     public static async Task<IActionResult> RunAsync(
         [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req,
         ILogger log)

@@ -1,0 +1,11 @@
+﻿### Get Access Token
+POST https://oauth2.googleapis.com/token
+Content-Type: application/json
+
+{
+  "client_id": "34982542295-a8c9dqegqgpdle5gg66m09d0k0st3los.apps.googleusercontent.com",
+  "client_secret": "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",
+  "code": "4/0AWtgzh59fbWBXG2sP9VeqpAvKi1pJVuz40OIDD0aeBEtm-zq4oyjSC52kzAUdSQ2yq7u7w",
+  "grant_type": "authorization_code",
+  "redirect_uri": "https://dae-ne.github.io/oauth-code-parser"
+}

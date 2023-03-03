@@ -1,8 +1,8 @@
 ﻿namespace PD.INT001.Application.Interfaces;
 
-public interface IAuthService
+public interface IGoogleAuthService
 {
     Task<string> GetTokenAsync(CancellationToken cancellationToken);
 
-    Task RefreshTokenAsync(CancellationToken cancellationToken);
+    Task<string> RefreshTokenAsync(CancellationToken cancellationToken);
 }

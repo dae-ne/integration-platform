@@ -1,9 +1,9 @@
 ﻿using Azure;
 using Azure.Data.Tables;
 
-namespace PD.INT001.Infrastructure.Authorization;
+namespace PD.INT001.Infrastructure.GoogleAuth;
 
-internal sealed class AuthTokenEntity : ITableEntity
+internal sealed class GoogleAuthTokenEntity : ITableEntity
 {
     public string PartitionKey { get; set; } = string.Empty;
 

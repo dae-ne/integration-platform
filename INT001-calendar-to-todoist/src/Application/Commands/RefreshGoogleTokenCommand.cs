@@ -4,16 +4,20 @@ public record RefreshGoogleTokenCommand : IRequest;
 
 internal sealed class RefreshGoogleTokenHandler : IRequestHandler<RefreshGoogleTokenCommand>
 {
-    private readonly IAuthService _authService;
+    private readonly IGoogleAuthService _googleAuthService;
 
-    public RefreshGoogleTokenHandler(IAuthService authService)
+    public RefreshGoogleTokenHandler(IGoogleAuthService googleAuthService)
     {
-        _authService = authService;
+        _googleAuthService = googleAuthService;
     }
     
     public async Task Handle(RefreshGoogleTokenCommand request, CancellationToken cancellationToken)
     {
-        var token = await _authService.GetTokenAsync(cancellationToken);
-        Console.WriteLine(token);
+        var accessToken = await _googleAuthService.RefreshTokenAsync(cancellationToken);
+
+        if (string.IsNullOrEmpty(accessToken))
+        {
+            // TODO: logger error
+        }
     }
 }

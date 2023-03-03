@@ -1,7 +1,8 @@
 ﻿using Microsoft.Extensions.Azure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using PD.INT001.Infrastructure.Authorization;
+using PD.INT001.Infrastructure.GoogleAuth;
+using PD.INT001.Infrastructure.GoogleWebhook;
 
 namespace PD.INT001.Infrastructure;
 
@@ -9,23 +10,36 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
-        services
-            .Configure<AuthTableOptions>(configuration.GetSection(AuthTableOptions.Position))
-            .Configure<GoogleOptions>(configuration.GetSection(GoogleOptions.Position));
+        var googleAuthTableOptionsSection = configuration.GetSection(GoogleAuthTableOptions.Position);
+        var googleAuthTableOptions = googleAuthTableOptionsSection.Get<GoogleAuthTableOptions>();
         
-        // TODO: Polly
-        services.AddHttpClient<IAuthService, AuthService>(client =>
-        {
-            client.BaseAddress = new Uri(""); // TODO: get base address from configuration
-        });
+        var googleAuthOptionsSection = configuration.GetSection(GoogleAuthOptions.Position);
+        var googleAuthOptions = googleAuthOptionsSection.Get<GoogleAuthOptions>();
+        
+        var googleWebhookOptionsSection = configuration.GetSection(GoogleWebhookOptions.Position);
+        var googleWebhookOptions = googleAuthOptionsSection.Get<GoogleWebhookOptions>();
+
+        services
+            .Configure<GoogleAuthTableOptions>(googleAuthTableOptionsSection)
+            .Configure<GoogleAuthOptions>(googleAuthTableOptionsSection)
+            .Configure<GoogleWebhookOptions>(googleAuthTableOptionsSection);
         
         services.AddAzureClients(builder =>
         {
-            // TODO: get connection string from configuration
-            builder.AddTableServiceClient("");
+            builder.AddTableServiceClient(googleAuthTableOptions.ConnectionString);
         });
 
-        services.AddTransient<IAuthService, AuthService>();
+        // TODO: Polly
+        services.AddHttpClient<IGoogleAuthService, GoogleAuthService>(client =>
+        {
+            client.BaseAddress = new Uri(googleAuthOptions.BaseAuthUrl);
+        });
+        
+        // TODO: Polly
+        services.AddHttpClient<IGoogleWebhookService, GoogleWebhookService>(client =>
+        {
+            client.BaseAddress = new Uri(googleWebhookOptions.BaseUrl);
+        });
 
         return services;
     }
