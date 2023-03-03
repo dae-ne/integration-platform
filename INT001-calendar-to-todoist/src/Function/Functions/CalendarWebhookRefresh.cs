@@ -1,9 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Extensions.Logging;
-
-namespace PD.INT001.Function.Functions;
+﻿namespace PD.INT001.Function.Functions;
 
 public static class CalendarWebhookRefresh
 {

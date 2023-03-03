@@ -1,12 +1,4 @@
-﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
-using MediatR;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Extensions.Logging;
-using PD.INT001.Application.Commands;
-
-namespace PD.INT001.Function.Functions;
+﻿namespace PD.INT001.Function.Functions;
 
 public sealed class GoogleTokenRefresh
 {

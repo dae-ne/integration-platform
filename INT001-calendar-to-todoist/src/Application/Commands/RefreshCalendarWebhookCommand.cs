@@ -1,6 +1,4 @@
-﻿using MediatR;
-
-namespace PD.INT001.Application.Commands;
+﻿namespace PD.INT001.Application.Commands;
 
 public record RefreshCalendarWebhookCommand : IRequest;
 

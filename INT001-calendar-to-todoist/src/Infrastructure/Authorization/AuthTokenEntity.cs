@@ -3,7 +3,7 @@ using Azure.Data.Tables;
 
 namespace PD.INT001.Infrastructure.Authorization;
 
-public class AuthTokenEntity : ITableEntity
+internal sealed class AuthTokenEntity : ITableEntity
 {
     public string PartitionKey { get; set; } = string.Empty;
 

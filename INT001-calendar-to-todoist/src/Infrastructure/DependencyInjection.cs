@@ -1,9 +1,7 @@
 ﻿using Microsoft.Extensions.Azure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using PD.INT001.Application.Interfaces;
 using PD.INT001.Infrastructure.Authorization;
-using PD.INT001.Infrastructure.Configuration;
 
 namespace PD.INT001.Infrastructure;
 

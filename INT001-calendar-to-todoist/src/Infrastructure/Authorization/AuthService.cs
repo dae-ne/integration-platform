@@ -1,8 +1,6 @@
 ﻿using Azure.Data.Tables;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
-using PD.INT001.Application.Interfaces;
-using PD.INT001.Infrastructure.Configuration;
 
 namespace PD.INT001.Infrastructure.Authorization;
 

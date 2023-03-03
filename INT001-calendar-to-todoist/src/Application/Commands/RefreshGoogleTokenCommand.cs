@@ -1,7 +1,4 @@
-﻿using MediatR;
-using PD.INT001.Application.Interfaces;
-
-namespace PD.INT001.Application.Commands;
+﻿namespace PD.INT001.Application.Commands;
 
 public record RefreshGoogleTokenCommand : IRequest;
 
